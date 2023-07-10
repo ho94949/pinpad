@@ -1,6 +1,6 @@
 # PinPad
 
-PinPad environment from [Danjiar - Director](https://github.com/danijar/director/blob/main/embodied/envs/pinpad.py).
+PinPad environment from [Danijar - Director](https://github.com/danijar/director/blob/main/embodied/envs/pinpad.py), modified.
 
 ## Requirements
 
@@ -10,5 +10,10 @@ PinPad environment from [Danjiar - Director](https://github.com/danijar/director
 
 ## Install
 
-pip install -e .
+`pip install -e .`
+
+## Disclaimer
+
+This is not an official implementation of pinpad.
+`run_gui` code is motivated from [Danijar - Crafter](https://github.com/danijar/crafter).
 
