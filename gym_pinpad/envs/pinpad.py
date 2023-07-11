@@ -50,6 +50,10 @@ class PinPadEnv(gym.Env):
         self.done = False
         return self._obs()
 
+    @property
+    def action_space(self):
+        return gym.spaces.Discrete(5)
+
     def step(self, action):
         if self.done:
             return self.reset()
