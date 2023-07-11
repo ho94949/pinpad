@@ -124,7 +124,7 @@ class PinPadEnv(gym.Env):
         for i, char in enumerate(self.sequence):
             grid[2*i+1, -2] = settings.COLORS[char]
 
-        return np.repeat(np.repeat(grid, 4, 0), 4, 1).transpose((2, 0, 1))
+        return np.repeat(np.repeat(grid, 4, 0), 4, 1).transpose((2, 1, 0))
 
     def _obs(self, reward=0.0, is_last=False):
         return self.render(), reward, is_last, {}

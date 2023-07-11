@@ -46,11 +46,11 @@ def main():
     total_reward = 0
 
     while running:
-        image = prev_step['observation']
+        image = prev_step[0]
         image = Image.fromarray(image.transpose(1, 2, 0))
         image = image.resize(args.window, resample=Image.NEAREST)
         image = np.array(image)
-        surface = pygame.surfarray.make_surface(image)
+        surface = pygame.surfarray.make_surface(image.transpose(1, 0, 2))
         screen.blit(surface, (0, 0))
         pygame.display.flip()
         clock.tick(args.fps)
@@ -80,10 +80,10 @@ def main():
         prev_step = env.step(
             ['noop', 'move_down', 'move_up', 'move_right', 'move_left'].index(action))
 
-        if prev_step['reward'] != 0:
-            print(f'Reward: {prev_step["reward"]}')
-            total_reward += prev_step['reward']
-        if prev_step['is_last']:
+        if prev_step[1] != 0:
+            print(f'Reward: {prev_step[1]}')
+            total_reward += prev_step[1]
+        if prev_step[2]:
             print('Episode Done!')
             print(f'Total Reward: {total_reward}')
             running = False
