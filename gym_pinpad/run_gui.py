@@ -47,10 +47,10 @@ def main():
 
     while running:
         image = prev_step['observation']
-        image = Image.fromarray(image)
+        image = Image.fromarray(image.transpose(1, 2, 0))
         image = image.resize(args.window, resample=Image.NEAREST)
         image = np.array(image)
-        surface = pygame.surfarray.make_surface(image.transpose((1, 0, 2)))
+        surface = pygame.surfarray.make_surface(image)
         screen.blit(surface, (0, 0))
         pygame.display.flip()
         clock.tick(args.fps)
