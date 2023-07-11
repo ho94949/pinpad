@@ -126,15 +126,5 @@ class PinPadEnv(gym.Env):
 
         return np.repeat(np.repeat(grid, 4, 0), 4, 1).transpose((2, 0, 1))
 
-    def _get_obs(self):
-        return {"agent": self._agent_location, "target": self._target_location}
-
-    def _get_info(self):
-        return {
-            "distance": np.linalg.norm(
-                self._agent_location - self._target_location, ord=1
-            )
-        }
-
-    def _obs(self, reward=0.0, is_first=False, is_last=False, is_terminal=False):
-        return dict(observation=self.render(), reward=reward, is_first=is_first, is_last=is_last, is_terminal=is_terminal)
+    def _obs(self, reward=0.0, is_last=False):
+        return self.render(), reward, is_last
