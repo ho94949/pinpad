@@ -4,7 +4,7 @@ setup(
     name='gym_pinpad',
     version='2023.7.10',
     keywords='environment, agent, rl, openaigym, openai-gym, gym, 2d',
-    packages=find_packages(),
+    packages=['gym_pinpad', 'gym_pinpad.envs'],
     install_requires=[
         'gym==0.23.1',
         'numpy>=1.10.0',
