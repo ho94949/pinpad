@@ -137,4 +137,4 @@ class PinPadEnv(gym.Env):
         }
 
     def _obs(self, reward=0.0, is_first=False, is_last=False, is_terminal=False):
-        return dict(image=self.render(), reward=reward, is_first=is_first, is_last=is_last, is_terminal=is_terminal)
+        return dict(observation=self.render(), reward=reward, is_first=is_first, is_last=is_last, is_terminal=is_terminal)

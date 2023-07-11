@@ -46,7 +46,7 @@ def main():
     total_reward = 0
 
     while running:
-        image = prev_step['image']
+        image = prev_step['observation']
         image = Image.fromarray(image)
         image = image.resize(args.window, resample=Image.NEAREST)
         image = np.array(image)
