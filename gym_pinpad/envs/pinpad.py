@@ -72,12 +72,14 @@ class PinPadEnv(gym.Env):
     def step(self, action):
         if self.done:
             return self.reset()
+        self.steps += 1
+        self.done = self.done or (self.steps >= self.length)
         if self.countdown:
             self.countdown -= 1
             if self.countdown == 0:
                 self._respawn()
             else:
-                return self._obs()
+                return self._obs(reward=0, is_last=self.done)
 
         reward = 0.0
         move = [(0, 0), (0, 1), (0, -1), (1, 0), (-1, 0)][action]
@@ -96,8 +98,6 @@ class PinPadEnv(gym.Env):
             reward += 1
             self.countdown = 10
 
-        self.steps += 1
-        self.done = self.done or (self.steps >= self.length)
         return self._obs(reward=reward, is_last=self.done)
 
     def render(self):
