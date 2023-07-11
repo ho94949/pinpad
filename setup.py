@@ -1,10 +1,10 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='gym_pinpad',
     version='2023.7.10',
     keywords='environment, agent, rl, openaigym, openai-gym, gym, 2d',
-    packages=['gym_pinpad'],
+    packages=find_packages(),
     install_requires=[
         'gym==0.23.1',
         'numpy>=1.10.0',
