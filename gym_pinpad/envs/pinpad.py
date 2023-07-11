@@ -54,6 +54,21 @@ class PinPadEnv(gym.Env):
     def action_space(self):
         return gym.spaces.Discrete(5)
 
+    @property
+    def observation_space(self):
+        return gym.spaces.Box(0, 255, (3, 64, 64), dtype=np.uint8)
+
+    @property
+    def obs_space(self):
+        spaces = {
+            "observation": self._env.observation_space,
+            "reward": gym.spaces.Box(-np.inf, np.inf, (), dtype=np.float32),
+            "is_first": gym.spaces.Box(0, 1, (), dtype=bool),
+            "is_last": gym.spaces.Box(0, 1, (), dtype=bool),
+            "is_terminal": gym.spaces.Box(0, 1, (), dtype=bool),
+        }
+        return spaces
+
     def step(self, action):
         if self.done:
             return self.reset()
