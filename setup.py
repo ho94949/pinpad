@@ -6,8 +6,8 @@ setup(
     keywords='environment, agent, rl, openaigym, openai-gym, gym, 2d',
     packages=['gym_pinpad', 'gym_pinpad.envs'],
     install_requires=[
-        'gym==0.23.1',
-        'numpy>=1.10.0',
+        'gym>=0.9.0',
+        'numpy>=1.20.0',
     ],
     extras_require={'gui': ['pygame', 'Pillow']},
     entry_points={'console_scripts': ['gym_pinpad=gym_pinpad.run_gui:main']},

@@ -84,7 +84,7 @@ class PinPadEnv(gym.Env):
         reward = 0.0
         move = [(0, 0), (0, 1), (0, -1), (1, 0), (-1, 0)][action]
         x = np.clip(self.player[0] + move[0], 0, self.layout.shape[0]-1)
-        y = np.clip(self.player[1] + move[1], 0, self.layout.shape[1])
+        y = np.clip(self.player[1] + move[1], 0, self.layout.shape[1]-1)
 
         # Check whether stepped on tile.
         tile = self.layout[x][y]
